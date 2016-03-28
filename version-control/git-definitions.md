@@ -16,4 +16,4 @@ A Commit in Git is when someone finishes working on certain features of a progra
 
 * What is a merge conflict?
 
-A merge conflict occours when two or more people attempt to modify the same line of code and merge their two branches. Git can't decide between the two and bounces back a special block asking you to pick which line of code it should include in the new merged branch.
+A merge conflict occours when two or more people attempt to modify the same line of code and merge their two branches. Git can't decide between the two and bounces back a special block asking you to pick which(or completely new!) line of code it should include in the new merged branch.
