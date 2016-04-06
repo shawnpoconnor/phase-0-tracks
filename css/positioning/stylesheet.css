@@ -1,8 +1,20 @@
-#octopus {
-  margin: 200px 0px 0px 500px;
-  z-index: 0
+.octo-wrapper {
+  position: relative;
 }
 
-.fashion {
+#octopus {
+  margin: 200px 0px 0px 500px;
+  z-index: -1
+}
 
+#glasses {
+  position: absolute;
+  top: 300px;
+  right: 590px;
+}
+
+#hat {
+  position: absolute;
+  top: 120px;
+  right: 510px;
 }
