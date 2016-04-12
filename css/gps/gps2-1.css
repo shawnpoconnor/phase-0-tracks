@@ -1,3 +1,52 @@
 body {
-  background-color: black;
+  background-color: goldenrod;
+  margin: 0;
+  padding: 0;
+}
+
+header h1 {
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+}
+
+header p {
+ display: inline-block;
+ vertical-align: top;
+  width: 45%;
+}
+
+.column-1 {
+  background-color: white;
+  border: dashed;
+  border-radius: 15px;
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+  margin-left: 5%;
+}
+
+.column-2 {
+  background-color: white;
+  border: dashed;
+  border-radius: 15px;
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background: black;
+  color: white;
+  width: 100%;
+}
+
+a:visited {
+  color: orange;
+}
+
+a {
+  color: green;
 }
