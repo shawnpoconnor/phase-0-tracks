@@ -1,3 +1,5 @@
+ROBOT AND ELEVATOR
+
 1. ask me for what floor to go to(goto_floor)
 2. find out what floor you are on(on_floor)
 3. if goto_floor is higher than on_floor
@@ -18,3 +20,25 @@
 13. until current_button is equal to goto_floor
 	- move left one button.
 14. push button.
+
+MAKE CEREAL(assuming all materials are already present in front of robot)
+
+1. grip box
+2. open top of box
+3. open bag of cerial inside
+4. pickup box
+5. until bowl is full
+    -until cerial is poaring out of box
+      -tilt container foward.
+6. tilt box back until no cerial is poaring.
+7. roll up bag inside box.
+8. close box.
+10. set box down and release grip.
+11. grab milk
+12. uncrew cap of milk.
+13. until milk can be seen
+    -until milk is poaring out
+      -tilt container foward.
+14. tilt milk back until no milk is poaring out.
+15. put cap back on.
+16. set milk back down.
