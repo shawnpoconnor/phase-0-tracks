@@ -14,11 +14,19 @@ ROBOT AND ELEVATOR
 9. locate floor buttons.
 10. until you haven’t seen button in 5 seconds
 	-look up
-11. go back to last button seen.
+11. go right until button is seen.
 12. until you haven’t seen a button in 5 seconds
 	-look left
 13. until current_button is equal to goto_floor
-	- move left one button.
+	-if you find a button after 5 seconds
+    - move right one button.
+  -else
+    - if move down results in finding button
+      -until you haven’t seen a button in 5 seconds
+        -look left
+      -go right until button is found
+    - else
+      -call master and say "YOUR FLOOR ISINT HERE"
 14. push button.
 
 MAKE CEREAL(assuming all materials are already present in front of robot)
