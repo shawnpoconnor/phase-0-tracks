@@ -1,4 +1,19 @@
 def get_vamp_info
+  puts "Please list your allergies"
+  allergy = gets.chomp.downcase
+  until allergy == "done"
+    if allergy != "sunshine"
+      allergy = gets.chomp.downcase
+    elsif allergy == "sunshine"
+      puts "probably not a vampire"
+      break
+    else
+      ask_questions
+    end
+  end
+end
+
+def ask_questions
   puts "What is your name"
   name = gets.chomp
 
@@ -29,6 +44,17 @@ def get_vamp_info
   end
 end
 
+def check_for_allergies
+  puts "Please list your allergies"
+  allergy = gets.chomp.downcase
+  until allergy == "done"
+    if allergy != sunshine
+      allergy = gets.chomp.downcase
+    elsif allergy == sunshine
+      puts "probably not a vampire"
+    end
+  end
+end
 
 def vamp_processor
   puts "How many employees will be processed?"
