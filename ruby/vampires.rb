@@ -1,14 +1,15 @@
 def get_vamp_info
-  puts "Please list your allergies"
+  puts "Please list your allergies, type done to end"
   allergy = gets.chomp.downcase
-  until allergy == "done"
-    if allergy != "sunshine"
-      allergy = gets.chomp.downcase
+  while true
+    if allergy == "done"
+      ask_questions
+      break
     elsif allergy == "sunshine"
       puts "probably not a vampire"
       break
     else
-      ask_questions
+      allergy = gets.chomp.downcase
     end
   end
 end
@@ -44,18 +45,6 @@ def ask_questions
   end
 end
 
-def check_for_allergies
-  puts "Please list your allergies"
-  allergy = gets.chomp.downcase
-  until allergy == "done"
-    if allergy != sunshine
-      allergy = gets.chomp.downcase
-    elsif allergy == sunshine
-      puts "probably not a vampire"
-    end
-  end
-end
-
 def vamp_processor
   puts "How many employees will be processed?"
   number_of_employees = gets.chomp.to_i
@@ -65,3 +54,4 @@ def vamp_processor
 end
 
 vamp_processor
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
