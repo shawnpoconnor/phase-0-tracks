@@ -18,12 +18,10 @@ def interface
     puts "Give me a new password to encrypt please."
     password = gets.chomp
     puts "This is your encrypted password: #{encrypt(password)}."
-
   elsif user_input == "decrypt"
     puts "What is your encrypted password?"
     password = gets.chomp
     puts "This is your decrypted password: #{decrypt(password)}."
-
   else
     puts "GIVE ME A REAL ANSWER"
     interface
@@ -82,4 +80,3 @@ def decrypt (string)
 end
 
 interface
-

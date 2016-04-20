@@ -1,3 +1,5 @@
+=begin
+>>>>>>> 4ccc719379b82180d1a51ca3027bc6e0cd4a5b6e
 array = %w(hi bye goodbye adios ciao bonjour)
 hash = {jaws: 9, weekend_at_bernies: 10, jurrasic_park: 9, how_high: 8.5, office_space: 8.5}
 
@@ -20,7 +22,7 @@ end
 array.each do |saying|
   puts "The saying, #{saying} is crazy, that bird is a liar, I'm Brian Fellows."
 end
-
+=end
 
 
 def boggle_game
