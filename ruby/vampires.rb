@@ -1,82 +1,57 @@
-# string = user imput
+def get_vamp_info
+  puts "Please list your allergies, type done to end"
+  allergy = gets.chomp.downcase
+  while true
+    if allergy == "done"
+      ask_questions
+      break
+    elsif allergy == "sunshine"
+      puts "probably not a vampire"
+      break
+    else
+      allergy = gets.chomp.downcase
+    end
+  end
+end
 
-# encrypt method
-#   while counter is shorter than length of word
-#     look at number indexexed at counter and apply  .next
+def ask_questions
+  puts "What is your name"
+  name = gets.chomp
 
-# decrypt method
-#   while counter is shorter than length of word
-#     look at number indexed and go back one letter value.
+  puts "How old are you?"
+  age = gets.chomp.to_i
 
-#Creating a user interface for the secret agent
-def interface
-  puts "Hello secret agent, would you like to decrypted or encrypt a password?(encrypt/decrypt)."
+  puts "What year were you born"
+  yob = gets.chomp.to_i
 
-  user_input = gets.chomp
+  puts "Our company cafeteria serves garlic bread. Should we order some for you?"
+  eats_garlic = gets.chomp.downcase
 
-  if user_input == "encrypt"
-    puts "Give me a new password to encrypt please."
-    password = gets.chomp
-    puts encrypt(password)
-  elsif user_input == "decrypt"
-    puts "What is your encrypted password?"
-    password = gets.chomp
-    puts decrypt(password)
+  puts "would you like to enroll in the company's health insurance?"
+  health_insureance = gets.chomp.downcase
+
+  if name == "Drake Cula" || name == "Tu Fang"
+    puts "Definitely a vampire."
   else
-    puts "GIVE ME A REAL ANSWER"
-    interface
-  end
-end
-
-def encrypt (string)
-  word_array = string.split(" ")
-  word_index = 0
-  while word_index < word_array.length
-    letter_length = 0
-    indexed_word = word_array[word_index]
-    while letter_length < indexed_word.length
-      #indexed_word[letter_length] = indexed_word[letter_length].next
-      #"a".ord= 97
-      dif = indexed_word[letter_length].ord - "a".ord  #indexed_word[letter_length] current letter being analyzed, subtracted by a set starting point.
-      rem = (dif + 1) % 26 # modulo line: puts difference back at actual letter analyzed, and determines if there is a remainder.
-      indexed_word[letter_length] = ("a".ord + rem).chr #adds remainder to set starting point, resetting the alphabet, and turning back from ordinance to character.
-
-      #"z".ord = 122
-      #26 letters in the alaphet
-      #z to a 122 + 1 = 123 - 97 = 26 % 26 = 0
-
-      letter_length += 1
+    if ((2016 - yob) == age) && ((eats_garlic == "yes") || (health_insureance == "yes"))
+      puts "probably not a vampire"
+    elsif ((2016 - yob) != age) && ((eats_garlic == "no") || (health_insureance == "no"))
+      puts "probably a vampire"
+    elsif ((2016 - yob) != age) && ((eats_garlic == "no") && (health_insureance == "no"))
+      puts "Almost certainly a vampire"
+    else
+      puts "results inconslusive."
     end
-    word_index += 1
   end
-  return word_array.join(" ")
 end
 
- # puts encrypt("xyz abc")
-
-
-def decrypt (string)
-  word_array = string.split(" ")
-  word_index = 0
-  while word_index < word_array.length
-    letter_length = 0
-    indexed_word = word_array[word_index]
-    while letter_length < indexed_word.length
-      #indexed_word[letter_length] = indexed_word[letter_length].next
-      #"a".ord= 97
-      dif = indexed_word[letter_length].ord - "a".ord  #indexed_word[letter_length] current letter being analyzed, subtracted by a set starting point.
-      rem = (dif - 1) % 26 # modulo line: puts difference back at actual letter analyzed, and determines if there is a remainder.
-      indexed_word[letter_length] = ("a".ord + rem).chr #adds remainder to set starting point, resetting the alphabet, and turning back from ordinance to character.
-
-      #"z".ord = 122
-      #26 letters in the alaphet
-      #z to a 122 + 1 = 123 - 97 = 26 % 26 = 0
-
-      letter_length += 1
-    end
-    word_index += 1
+def vamp_processor
+  puts "How many employees will be processed?"
+  number_of_employees = gets.chomp.to_i
+  number_of_employees.times do
+    get_vamp_info
   end
-  return word_array.join(" ")
 end
 
-interface
+vamp_processor
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
