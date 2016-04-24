@@ -38,7 +38,7 @@ def letter_switcher(agent_name)
       end
     end
   end
-  puts new_alias.join(" ")
+  return new_alias.join
 end
 
 def vowel_switcher (letter)
