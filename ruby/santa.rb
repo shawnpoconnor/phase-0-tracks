@@ -1,11 +1,6 @@
 class Santa
-  def speak
-    puts "Ho, ho, ho! Haaaappy holidays!"
-  end
-
-  def eat_milk_and_cookies (cookie_type)
-    puts "That was a good #{cookie_type}"
-  end
+  attr_reader :ethnicity, :gender, :reindeer_ranking
+  attr_accessor :age
 
   def initialize (ethnicity, gender)
     puts "Initalizing Santa"
@@ -14,23 +9,27 @@ class Santa
     @reindeer_ranking = %w(Rudolph Dasher Dancer Prancer Vixen Comet Cupid Donner Blitzen)
     @age = 0
   end
+# gettr
+#   def age
+#     @age
+#   end
+
+#setter
+  # def age= (age)
+  #   @age = age
+  # end
+
+  def speak
+    puts "Ho, ho, ho! Haaaappy holidays!"
+  end
+
+  def eat_milk_and_cookies (cookie_type)
+    puts "That was a good #{cookie_type}"
+  end
 
   def celebrate_birthday
     @age += 1
   end
-
-  # def get_mad_at(bad_reindeer)
-  #   i = 0
-  #   removed_reindeer = nil
-  #   while i < 0
-  #     if @reindeer_ranking[i] == bad_reindeer
-  #       removed_reindeer = @reindeer_ranking.delete_at(i)
-  #       @reindeer_ranking << removed_reindeerd
-  #       break
-  #     end
-  #     i += 1
-  #   end
-  # end
 
   def get_mad_at(bad_reindeer)
     i = 0
@@ -42,20 +41,6 @@ class Santa
       end
       i += 1
     end
-  end
-
-  def about
-    puts "reindeer ranking is #{@reindeer_ranking}"
-    puts "age is #{@age}"
-    puts "ethnicity is #{@ethnicity}"
-  end
-
-  def age
-    puts @age
-  end
-
-  def ethnicity
-    puts ethnicity
   end
 end
 
@@ -71,5 +56,7 @@ number_of_santas.to_i.times do
 end
 
 # **Driver Code**
-santas[0].about
+puts santas[0].age
+santas[0].age=(25)
+puts santas[0].age
 santas[0].get_mad_at("Dasher")
