@@ -9,15 +9,6 @@ class Santa
     @reindeer_ranking = %w(Rudolph Dasher Dancer Prancer Vixen Comet Cupid Donner Blitzen)
     @age = 0
   end
-# gettr
-#   def age
-#     @age
-#   end
-
-#setter
-  # def age= (age)
-  #   @age = age
-  # end
 
   def speak
     puts "Ho, ho, ho! Haaaappy holidays!"
@@ -44,19 +35,50 @@ class Santa
   end
 end
 
-santas = []
-puts "how many santas would you like to make?"
-number_of_santas = gets.chomp
-number_of_santas.to_i.times do
-  puts "what is your santa's ethnicity?"
-  ethnicity = gets.chomp
-  puts "what is your santa's gender?"
-  gender = gets.chomp
-  santas << Santa.new(ethnicity, gender)
+# **Driver Methods**
+def make_by_hand
+    puts "what is your santa's ethnicity?"
+    ethnicity = gets.chomp
+    puts "what is your santa's gender?"
+    gender = gets.chomp
+    return Santa.new(ethnicity, gender)
 end
 
-# **Driver Code**
-puts santas[0].age
-santas[0].age=(25)
-puts santas[0].age
-santas[0].get_mad_at("Dasher")
+def generate_random_santa
+  possible_genders = ["Female", "Male", "Agender", "Bigender", "Genderfluid"]
+  possible_ethnicity = ["White", "Black", "Asian", "Hispanic", "Middleastern", "Unicorn", "Dinosaur"]
+  ethnicity = possible_ethnicity.sample
+  gender = possible_genders.sample
+  return Santa.new(ethnicity, gender)
+end
+
+# def generate_santas(random_santas)
+#   if random_santas == "yes"
+#     number_of_santas.times {santas << generate_random_santa}
+#   else
+#     number_of_santas.times {santas << make_by_hand}
+#   end
+# end
+# **DRIVER CODE**
+puts "how many santas would you like to make?"
+number_of_santas = gets.chomp.to_i
+puts "Would you like to generate them randomly"
+random_santas = gets.chomp
+santas = []
+
+if random_santas == "yes"
+  number_of_santas.times {santas << generate_random_santa}
+else
+  number_of_santas.times {santas << make_by_hand}
+end
+
+print santas
+
+
+# Sudiocode
+# ask user if they would like to randomly generate santas
+# ask user how many santas
+# if they want random santas run random Method
+# else run make_by_hand Method
+# return array of santas
+
