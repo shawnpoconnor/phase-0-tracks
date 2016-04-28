@@ -2,12 +2,12 @@ class Santa
   attr_reader :ethnicity, :gender, :reindeer_ranking
   attr_accessor :age
 
-  def initialize (ethnicity, gender)
+  def initialize (ethnicity, gender, age = 0)
     puts "Initalizing Santa"
     @ethnicity = ethnicity
     @gender = gender
     @reindeer_ranking = %w(Rudolph Dasher Dancer Prancer Vixen Comet Cupid Donner Blitzen)
-    @age = 0
+    @age = age
   end
 
   def speak
@@ -49,7 +49,8 @@ def generate_random_santa
   possible_ethnicity = ["White", "Black", "Asian", "Hispanic", "Middleastern", "Unicorn", "Dinosaur"]
   ethnicity = possible_ethnicity.sample
   gender = possible_genders.sample
-  return Santa.new(ethnicity, gender)
+  age = [*0..140].sample
+  return Santa.new(ethnicity, gender, age)
 end
 
 # def generate_santas(random_santas)
@@ -72,6 +73,7 @@ else
   number_of_santas.times {santas << make_by_hand}
 end
 
+santas[0].age=(55)
 print santas
 
 
