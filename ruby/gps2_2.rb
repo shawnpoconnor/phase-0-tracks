@@ -56,7 +56,7 @@ end
 
 def make_pretty_list(list)
   puts "\n LIST: \n "
-  list.each { |item, quantity| puts " #{item} : #{quantity}" }
+  list.each { |item, quantity| puts "#{item} : #{quantity}"}
 end
 
 
@@ -89,3 +89,28 @@ make_pretty_list(grocery_list)
 # p grocery_list
 
 # make_pretty_list(grocery_list)
+
+# **REFLECTION**
+# What did you learn about pseudocode from working on this challenge?
+
+# --I really did not like using the pseudocode template provided. I feel like it was the worst I've done pseudocoding and im not sure why. Normally it is really helpful for me to pseudocode, and on the prevous weekse assignments it was super helpful. I did learn that it's good to update and rework your pseudocode periodically to make sure you've got a gott handle on where your headed!
+
+# What are the tradeoffs of using arrays and hashes for this challenge?
+
+# -- A hash is almost the perfect data structure to use for this challenge. If we were to use  arrays we would have to loop through two arrays seperately containing the items and item amounts. A hash does this much more cleanly and simply. The only downside with using the hash is that you are limited to using enumerable iteration methods, so accessing the information in that way is somewhat restricted.
+
+# What does a method return?
+
+# --A method can returns the last evaluated peice of info it deals with be that from a return statement or from ruby's implicit return after evaluation. It can be any kind of data.
+
+# What kind of things can you pass into methods as arguments?
+
+# -- Anything can be passed into a method, any data type. Array, hash, string, boolian, other methods, EVEN BLOCKS WHAAAA???!!!
+
+# How can you pass information between methods?
+
+# --To trade info between methods a programmer can declare a variable outside of all the methods and pass that same variable into each method as an argument outputting/updating the variable outside the methods.
+
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+
+# -- I learned a lot in this challange about proper variable naming, and about keeping code out of pseudocode. Thought I can get by on what I know about passing infor between methods, I'm sure that there are plenty of ways I am missing out on and I'd like to get better at that!
