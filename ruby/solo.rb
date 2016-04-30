@@ -19,11 +19,12 @@ interdemsional travle
 time travle
 find location
 =end
-class Ricks
-  attr_accessor :hairstyle, :family
+class Rick
+  attr_accessor :hairstyle, :family, :nickname
   attr_reader :diminsion, :time, :gender, :race, :name
 
-  def initialize (diminsion, name = "Rick Sanchez", hairstyle = "Standard Rick Style", gender = "Male", race = "Human", age = 60)
+  def initialize (nickname = "Grandpa", hairstyle = "Standard Rick Style", race = "Human", diminsion = SecureRandom.base64([2,3,4,5].sample), name = "Rick Sanchez",  gender = "Male", age = 60)
+    @nickname = nickname
     @name = name
     @hairstyle = hairstyle
     @gender = gender
@@ -47,16 +48,64 @@ class Ricks
   end
 
   def location
-    puts "This rick is in the#{diminsion} in year #{time}"
+    puts "Rick: #{nickname} is in the #{diminsion} diminsion at #{time}"
   end
 end
 
-rick_c137 = Ricks.new("C-137")
-rick_c137.time_travle(1960)
-rick_c137.interdeminsional_travle("J19ζ7")
-rick_c137.location
-puts rick_c137.name
+
+#Interface
+#========================================
+=begin Psudocode:
+
+1. interface method
+--gets info to be ran in helper methods
+--runs helper methods with info
+
+2. Create ricks method
+--input: variables created in interface
+--steps: asks if you would like to make ricks by hand or generate randomly
+--outputs: Ricks to list of ricks
+
+3. print list method
+--input: list of ricks
+--steps: -- For each element in array
+=end
+require 'SecureRandom'
+
+def create_rick
+    puts "What is your Rick's Nickname?"
+    nickname = gets.chomp
+    puts "What is your Rick's hairstyle?"
+    hairstyle = gets.chomp
+    puts "What is your Rick's race?"
+    race = gets.chomp
+    Rick.new(nickname, hairstyle, race)
+end
+
+def print_ricks(collection_of_ricks)
+    puts "\n LIST OF KNOWN RICKS: \n "
+    collection_of_ricks.each { |rick| puts "#{rick.location}"}
+end
 
 def interface
+  all_the_ricks = []
   puts "How many Ricks would you like to make?"
+  rick_number = gets.chomp.to_i
+  rick_number.times do
+    all_the_ricks  << create_rick()
+  end
+  print_ricks(all_the_ricks)
 end
+
+#Driver
+#========================================
+
+# rick_c137 = Rick.new("gandpa")
+# rick_c137.location
+# rick_c137.time_travle(1960)
+# rick_c137.interdeminsional_travle("J19ζ7")
+# rick_c137.location
+# puts rick_c137.nickname
+# create_rick
+
+interface
