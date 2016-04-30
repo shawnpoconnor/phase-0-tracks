@@ -23,7 +23,7 @@ class Ricks
   attr_accessor :hairstyle, :family
   attr_reader :diminsion, :time, :gender, :race, :name
 
-  def initialize (diminsion, name = "Rick Sanchez", hairstyle = "Standard Rick Style", gender = "Male", race = "Human", age = 60)
+  def initialize (diminsion = SecureRandom.base64([2,3,4,5].sample), name = "Rick Sanchez", hairstyle = "Standard Rick Style", gender = "Male", race = "Human", age = 60)
     @name = name
     @hairstyle = hairstyle
     @gender = gender
@@ -51,12 +51,45 @@ class Ricks
   end
 end
 
-rick_c137 = Ricks.new("C-137")
+
+#Interface
+#========================================
+=begin Psudocode:
+
+1. interface method
+--gets info to be ran in helper methods
+--runs helper methods with info
+
+2. Create ricks method
+--input: variables created in interface
+--steps: asks if you would like to make ricks by hand or generate randomly
+--outputs: Ricks to list of ricks
+
+3. print list method
+--input: list of ricks
+--steps: -- For each element in array
+=end
+require 'SecureRandom'
+
+def create_rick
+  attributes = %w(name hairstyle diminsion )
+end
+
+def interface
+  all_the_ricks = []
+  puts "How many Ricks would you like to make?"
+  rick_number = gets.chomp
+  rick_number.times do
+    all_the_ricks  << create_rick()
+  end
+  print_ricks(all_the_ricks)
+end
+
+#Driver
+#========================================
+
+rick_c137 = Ricks.new
 rick_c137.time_travle(1960)
 rick_c137.interdeminsional_travle("J19ζ7")
 rick_c137.location
 puts rick_c137.name
-
-def interface
-  puts "How many Ricks would you like to make?"
-end
