@@ -23,7 +23,8 @@ class Ricks
   attr_accessor :hairstyle, :family
   attr_reader :diminsion, :time, :gender, :race, :name
 
-  def initialize (diminsion = SecureRandom.base64([2,3,4,5].sample), name = "Rick Sanchez", hairstyle = "Standard Rick Style", gender = "Male", race = "Human", age = 60)
+  def initialize (nick_name, diminsion = SecureRandom.base64([2,3,4,5].sample), name = "Rick Sanchez", hairstyle = "Standard Rick Style", gender = "Male", race = "Human", age = 60)
+    @nick_name = nick_name
     @name = name
     @hairstyle = hairstyle
     @gender = gender
@@ -47,7 +48,7 @@ class Ricks
   end
 
   def location
-    puts "This rick is in the#{diminsion} in year #{time}"
+    puts "This rick is in the #{diminsion} in year #{time}"
   end
 end
 
@@ -72,7 +73,7 @@ end
 require 'SecureRandom'
 
 def create_rick
-  attributes = %w(name hairstyle diminsion )
+  attributes = %w(nick_name hairstyle diminsion)
 end
 
 def interface
@@ -89,6 +90,7 @@ end
 #========================================
 
 rick_c137 = Ricks.new
+rick_c137.location
 rick_c137.time_travle(1960)
 rick_c137.interdeminsional_travle("J19ζ7")
 rick_c137.location
