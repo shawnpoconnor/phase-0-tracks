@@ -19,12 +19,12 @@ interdemsional travle
 time travle
 find location
 =end
-class Ricks
+class Rick
   attr_accessor :hairstyle, :family
   attr_reader :diminsion, :time, :gender, :race, :name
 
-  def initialize (nick_name, diminsion = SecureRandom.base64([2,3,4,5].sample), name = "Rick Sanchez", hairstyle = "Standard Rick Style", gender = "Male", race = "Human", age = 60)
-    @nick_name = nick_name
+  def initialize (nickname, hairstyle = "Standard Rick Style", race = "Human", diminsion = SecureRandom.base64([2,3,4,5].sample), name = "Rick Sanchez",  gender = "Male", age = 60)
+    @nickname = nickname
     @name = name
     @hairstyle = hairstyle
     @gender = gender
@@ -73,7 +73,13 @@ end
 require 'SecureRandom'
 
 def create_rick
-  attributes = %w(nick_name hairstyle diminsion)
+    puts "What is your Rick's Nickname?"
+    nickname = gets.chomp
+    puts "What is your Rick's hairstyle?"
+    hairstyle = gets.chomp
+    puts "What is your Rick's race?"
+    race = gets.chomp
+    Rick.new(nickname, hairstyle, race)
 end
 
 def interface
@@ -89,9 +95,10 @@ end
 #Driver
 #========================================
 
-rick_c137 = Ricks.new
+rick_c137 = Rick.new("gandpa")
 rick_c137.location
 rick_c137.time_travle(1960)
 rick_c137.interdeminsional_travle("J19ζ7")
 rick_c137.location
 puts rick_c137.name
+create_rick
