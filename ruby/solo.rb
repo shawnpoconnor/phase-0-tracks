@@ -82,6 +82,11 @@ def create_rick
     Rick.new(nickname, hairstyle, race)
 end
 
+def print_ricks(collection_of_ricks)
+    puts "\n LIST OF KNOWN RICKS: \n "
+    collection_of_ricks.each { |rick| puts "#{rick.nickname}, #{rick.location}"}
+end
+
 def interface
   all_the_ricks = []
   puts "How many Ricks would you like to make?"
@@ -95,10 +100,12 @@ end
 #Driver
 #========================================
 
-rick_c137 = Rick.new("gandpa")
-rick_c137.location
-rick_c137.time_travle(1960)
-rick_c137.interdeminsional_travle("J19ζ7")
-rick_c137.location
-puts rick_c137.name
-create_rick
+# rick_c137 = Rick.new("gandpa")
+# rick_c137.location
+# rick_c137.time_travle(1960)
+# rick_c137.interdeminsional_travle("J19ζ7")
+# rick_c137.location
+# puts rick_c137.name
+# create_rick
+
+interface
