@@ -1,10 +1,11 @@
 class Dancer
-  attr_accessor :name, :age, :card
-  def initialize(name, age, card = [])
+  attr_accessor :name, :age, :card, :tutu_color
+  def initialize(name, age, card = [], tutu_color = "white")
     puts "Initializeing Dancer"
     @name = name
     @age = age.to_i
     @card = card
+    @tutu_color = tutu_color
   end
 
   def pirouette
@@ -28,5 +29,8 @@ class Dancer
     return "Now dancing with #{now_dancing}."
   end
 
+  def change_tutu(color)
+    @tutu_color = color
+  end
 
 end

@@ -30,7 +30,8 @@ describe Dancer do
 
   it "changes tutu color" do
     dancer.change_tutu("red")
-    expect(dancer.tutu).to eq "red"
+    expect(dancer.tutu_color).to eq "red"
+  end
 
   it "can add parters to the dance card queue" do
     dancer.queue_dance_with("Mikhail Baryshnikov")
