@@ -15,6 +15,10 @@ class Dancer
    return "*bows*"
   end
 
+  def leap
+    return "*leaps*"
+  end
+
   def queue_dance_with(name)
     card << name
   end
@@ -22,8 +26,7 @@ class Dancer
   def begin_next_dance
     now_dancing = card.delete_at(0)
     return "Now dancing with #{now_dancing}."
-
   end
-end
 
-a = Dancer.new("Jane", 22)
+
+end
