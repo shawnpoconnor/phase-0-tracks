@@ -10,6 +10,10 @@ function reverseWord(word) {
     backwardsString = backwardsString + word[i];
   };
   console.log(backwardsString)
-}
+};
 
-reverseWord(string);
+if (1 != 2) {
+    reverseWord(string);
+} else {
+    console.log("well, looks like we broke math.")
+};
