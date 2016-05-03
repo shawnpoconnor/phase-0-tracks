@@ -46,4 +46,13 @@ describe Dancer do
     expect(dancer.begin_next_dance).to eq "Now dancing with Mikhail Baryshnikov."
     expect(dancer.card).to eq ["Anna Pavlova"]
   end
+
+  it "limits the amount of names on dance queue" do
+    dancer.queue_dance_with("Mikhail Baryshnikov")
+    dancer.queue_dance_with("Anna Pavlova")
+    dancer.queue_dance_with("Jimmy")
+    dancer.queue_dance_with("Bev")
+    expect(dancer.queue_dance_with("Shawn")).to eq 'Too many dancers!'
+    expect(dancer.card.length).to eq 4
+  end
 end

@@ -21,7 +21,11 @@ class Dancer
   end
 
   def queue_dance_with(name)
-    card << name
+    if @card.length < 4
+      card << name
+    else
+      return "Too many dancers!"
+    end
   end
 
   def begin_next_dance
@@ -32,5 +36,4 @@ class Dancer
   def change_tutu(color)
     @tutu_color = color
   end
-
 end
