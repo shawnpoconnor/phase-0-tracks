@@ -19,8 +19,31 @@ for (var i = 0; i < coolHorses.length; i++) {
 }
 console.log(colorfulHorses);
 
-// function makeObject (object, colors, horses)
-//   for (var i = 0; i < horses.length; i++) {
-//     object[horses[i]] = colors[i];
-//     console.log(object)
-//   };
+function makeCar(make, model, color, size) {
+  console.log("Assembling yourrrrr neeeeewww carrrrrrr!!!")
+  this.make = make;
+  this.model = model;
+  this.color = color;
+  this.size = size;
+  this.vroom = function() {console.log("Vrooooooooom!"); };
+  this.honk = function() {console.log("Beep! Beep!"); };
+  this.bark = function() { console.log("Woof!"); };
+}
+
+// var myCar = new makeCar("Ford", "Mustang", "Red", "Coop")
+// console.log(myCar.make)
+// myCar.vroom()
+// myCar.honk()
+// myCar.bark()
+
+var object = {
+    "key1" : "hi",
+    "key2" : "hello",
+    "key3" : "hola"
+};
+
+for (var key in object) {
+  // if (object.hasOwnProperty(key)) {
+    console.log(key + " -> " + object[key]);
+  // }
+}
