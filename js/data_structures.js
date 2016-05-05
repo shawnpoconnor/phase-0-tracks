@@ -30,20 +30,20 @@ function makeCar(make, model, color, size) {
   this.bark = function() { console.log("Woof!"); };
 }
 
-var myCar = new makeCar("Ford", "Mustang", "Red", "Coop")
-console.log(myCar.make)
-myCar.vroom()
-myCar.honk()
-myCar.bark()
+// var myCar = new makeCar("Ford", "Mustang", "Red", "Coop")
+// console.log(myCar.make)
+// myCar.vroom()
+// myCar.honk()
+// myCar.bark()
 
-// var object = {
-//     key1 = "hi"
-//     key2 = "hello"
-//     key3 = "hola"
-// };
+var object = {
+    "key1" : "hi",
+    "key2" : "hello",
+    "key3" : "hola"
+};
 
-// for (var key in object) {
-//   if (p.hasOwnProperty(key)) {
-//     console.log(key + " -> " + p[key]);
-//   }
-// }
+for (var key in object) {
+  // if (object.hasOwnProperty(key)) {
+    console.log(key + " -> " + object[key]);
+  // }
+}
