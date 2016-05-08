@@ -71,32 +71,33 @@ function generateRandWord() {
   for( var i=0; i < randNum; i++ ) {
     newWord += possibleLetters.charAt(Math.floor(Math.random() * possibleLetters.length));
    };
-   console.log(newWord);
+   return newWord;
 };
 
-function populateRandWords(numberOfWords)
-  randomWords = new Array();
-
+function populateRandWords(numberOfWords) {
+  randomWords = []
+  for (var i=0; i < numberOfWords; i++) {
+    randomWords.push(generateRandWord());
+  };
+  console.log(randomWords);
+};
 
 // =============================================
 //                                **DRIVER/TESTING**
-// findLongestString(["long phrase","longest phrase","longer phrase"])
+findLongestString(["long phrase","longest phrase","longer phrase"])
 
-// var a = {
-//     "age" : "55",
-//     "height" : "6'",
-//     "weight" : "200"
-// };
+var a = {
+    "age" : "55",
+    "height" : "6'",
+    "weight" : "200"
+};
 
-// var b = {
-//   "age" : "23",
-//   "height" : "5'",
-//   "weight" : "165"
-//   }
+var b = {
+  "age" : "23",
+  "height" : "6'",
+  "weight" : "165"
+  }
 
-// keyValueSame(b, a)
+keyValueSame(b, a)
 
-x = new Array();
-x.push(1);
-x.push(2);
-console.log(x)
+populateRandWords(10)
