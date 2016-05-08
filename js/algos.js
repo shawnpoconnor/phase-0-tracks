@@ -51,7 +51,7 @@ console.log(isSame);
 // --------------------------------------------------------------------------------
 // **PSUDOCODE**
 // -- Function populateRandWords that is (n) indexes long of random words of varing length.
-//       1. set randWords variable to empty string
+//       1. set randomWords variable to empty array
 //       2. run a for loop n times
 //         *randWords gets outcome of generateWord function
 //       3. console.log(randWords)
@@ -65,14 +65,17 @@ console.log(isSame);
 //       5.return newWord
 
 function generateRandWord() {
-  var randNum = (Math.floor((Math.random() * 10) + 3));
+  var randNum = (Math.floor((Math.random() * 10) + 1));
   var possibleLetters = "abcdefghijklmnopqrstuvwxyz";
   var newWord = "";
-  for( var i=0; i < randNum; i++ ); {
-    text += possibleLetters.charAt(Math.floor(Math.random() * possible.length));
+  for( var i=0; i < randNum; i++ ) {
+    newWord += possibleLetters.charAt(Math.floor(Math.random() * possibleLetters.length));
    };
-  return newWord;
+   console.log(newWord);
 };
+
+function populateRandWords(numberOfWords)
+  randomWords = new Array();
 
 
 // =============================================
@@ -92,3 +95,8 @@ function generateRandWord() {
 //   }
 
 // keyValueSame(b, a)
+
+x = new Array();
+x.push(1);
+x.push(2);
+console.log(x)
