@@ -12,10 +12,10 @@ function findLongestString(wordsPhrases) {
   for(var i = 0; i < wordsPhrases.length; i++) {
     if(wordsPhrases[i].length > longestString.length) {
       longestString = wordsPhrases[i];
-    }
-  }
-  console.log(longestString)
-}
+    };
+  };
+  return longestString
+};
 
 // --------------------------------------------------------------------------------
 // **PSUDOCODE**
@@ -50,12 +50,6 @@ console.log(isSame);
 
 // --------------------------------------------------------------------------------
 // **PSUDOCODE**
-// -- Function populateRandWords that is (n) indexes long of random words of varing length.
-//       1. set randomWords variable to empty array
-//       2. run a for loop n times
-//         *randWords gets outcome of generateWord function
-//       3. console.log(randWords)
-
 // -- Function generateRandWord
 //       1. Set randNum variable to randomly generating number between 3-10
 //       2. Set possibleLetters variable to a-z
@@ -73,31 +67,41 @@ function generateRandWord() {
    };
    return newWord;
 };
+// **PSUDOCODE**
+// -- Function populateRandWords that is (n) indexes long of random words of varing length.
+//       1. set randomWords variable to empty array
+//       2. run a for loop n times
+//         *randWords gets outcome of generateWord function
+//       3. console.log(randWords)
 
 function populateRandWords(numberOfWords) {
   randomWords = []
   for (var i=0; i < numberOfWords; i++) {
     randomWords.push(generateRandWord());
   };
-  console.log(randomWords);
+  return randomWords;
 };
 
 // =============================================
 //                                **DRIVER/TESTING**
-findLongestString(["long phrase","longest phrase","longer phrase"])
+// console.log(findLongestString(["long phrase","longest phrase","longer phrase"]));
 
-var a = {
-    "age" : "55",
-    "height" : "6'",
-    "weight" : "200"
+// var a = {
+//     "age" : "55",
+//     "height" : "6'",
+//     "weight" : "200"
+// };
+
+// var b = {
+//   "age" : "23",
+//   "height" : "6'",
+//   "weight" : "165"
+//   }
+
+// keyValueSame(b, a)
+
+for (var i=0; i<10; i++) {
+  var words = populateRandWords(5);
+  console.log("list of words is: " + words);
+  console.log("longest word is: " + findLongestString(words));
 };
-
-var b = {
-  "age" : "23",
-  "height" : "6'",
-  "weight" : "165"
-  }
-
-keyValueSame(b, a)
-
-populateRandWords(10)
