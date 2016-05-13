@@ -16,10 +16,10 @@ sqlite> UPDATE patients SET doctor="1" WHERE name="Saundra";
 3. Display Info on both tables using one query
 
 -sqlite> SELECT * FROM patients, doctors WHERE patients.doctor = doctors.id;
-1|John|23|true|2|2|Kelly K.|42
-2|Susie|6|false|4|4|Sarah P.|40
-3|Frank|44|false|2|2|Kelly K.|42
-4|Saundra|40|true|1|1|Jen T.|55
+1|John|23|true|2|2|Kelly K.
+2|Susie|6|false|4|4|Sarah P
+3|Frank|44|false|2|2|Kelly K.
+4|Saundra|40|true|1|1|Jen T.
 
 ============================================
 4. Display relevant info
@@ -34,20 +34,62 @@ Saundra|40|true|Jen T.
 =============================================
 5. Deleat colum
 
-sqlite> DROP TABLE patients;
+sqlite> SELECT * FROM patients;
+1|John|23|true|2
+2|Susie|6|false|4
+3|Frank|44|false|2
+4|Saundra|40|true|1
 
-sqlite> CREATE TABLE patients (
-   ...> id INTEGER PRIMARY KEY,
-   ...> name VARCHAR(255),
-   ...> on_meds BOOLEAN,
-   ...> doctor INT,
-   ...> FOREIGN KEY (doctor) REFERENCES doctors(id)
-   ...> );
+sqlite> DELETE FROM patients WHERE age=6;
 
-sqlite> INSERT INTO patients (name, on_meds, doctor) VALUES ("Frank", "false", 2);
+sqlite> SELECT * FROM patients;
+1|John|23|true|2
+3|Frank|44|false|2
+4|Saundra|40|true|1
 
-sqlite> INSERT INTO patients (name, on_meds, doctor) VALUES ("Saundra", "true", 1);
+=============================================
+OTHER KINDS OF JOIN
+sqlite> SELECT * FROM patients CROSS JOIN doctors;
 
-sqlite> INSERT INTO patients (name, on_meds, doctor) VALUES ("Susie", "false", 4);
+-Joins every item from left table with each item on right table.
 
-sqlite> INSERT INTO patients (name, on_meds, doctor) VALUES ("John", "true", 2);
+id          name        age         on_meds     doctor      id          name        age
+----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------
+1           John        23          true        2           1           Jen T.      55
+1           John        23          true        2           2           Kelly K.    42
+1           John        23          true        2           3           Andrea      33
+1           John        23          true        2           4           Sarah P.    40
+3           Frank       44          false       2           1           Jen T.      55
+3           Frank       44          false       2           2           Kelly K.    42
+3           Frank       44          false       2           3           Andrea      33
+3           Frank       44          false       2           4           Sarah P.    40
+4           Saundra     40          true        1           1           Jen T.      55
+4           Saundra     40          true        1           2           Kelly K.    42
+4           Saundra     40          true        1           3           Andrea      33
+4           Saundra     40          true        1           4           Sarah P.    40
+5           Jacques     51          true                    1           Jen T.      55
+5           Jacques     51          true                    2           Kelly K.    42
+5           Jacques     51          true                    3           Andrea      33
+5           Jacques     51          true                    4           Sarah P.    40
+
+sqlite> SELECT * FROM patients JOIN doctors
+   ...> ON patients.doctor = doctors.id;
+
+- Joins colums from both tables only if they meet the ON specification
+
+id          name        age         on_meds     doctor      id          name        age
+----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------
+1           John        23          true        2           2           Kelly K.    42
+3           Frank       44          false       2           2           Kelly K.    42
+4           Saundra     40          true        1           1           Jen T.      55
+
+sqlite> SELECT * FROM patients JOIN doctors
+   ...> ON patients.doctor = doctors.id
+   ...> WHERE doctors.name LIKE "Kelly K.";
+
+-Joins colums from both tables which have matching patients.doctor and doctors.id, but only those who's doctors.name = "Kelly K."
+
+id          name        age         on_meds     doctor      id          name        age
+----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------
+1           John        23          true        2           2           Kelly K.    42
+3           Frank       44          false       2           2           Kelly K.    42
