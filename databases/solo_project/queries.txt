@@ -1,0 +1,53 @@
+1. Display table info
+
+sqlite> SELECT * FROM patients
+   ...> ;
+1|John|23|true|2
+2|Susie|6|false|4
+3|Frank|44|false|2
+4|Saundra|40|true|3
+
+============================================
+2. Update Item
+
+sqlite> UPDATE patients SET doctor="1" WHERE name="Saundra";
+
+============================================
+3. Display Info on both tables using one query
+
+-sqlite> SELECT * FROM patients, doctors WHERE patients.doctor = doctors.id;
+1|John|23|true|2|2|Kelly K.|42
+2|Susie|6|false|4|4|Sarah P.|40
+3|Frank|44|false|2|2|Kelly K.|42
+4|Saundra|40|true|1|1|Jen T.|55
+
+============================================
+4. Display relevant info
+
+sqlite> SELECT patients.name, patients.age, patients.on_meds, doctors.name FROM patients JOIN doctors ON patients.doctor = doctors.id;
+
+John|23|true|Kelly K.
+Susie|6|false|Sarah P.
+Frank|44|false|Kelly K.
+Saundra|40|true|Jen T.
+
+=============================================
+5. Deleat colum
+
+sqlite> DROP TABLE patients;
+
+sqlite> CREATE TABLE patients (
+   ...> id INTEGER PRIMARY KEY,
+   ...> name VARCHAR(255),
+   ...> on_meds BOOLEAN,
+   ...> doctor INT,
+   ...> FOREIGN KEY (doctor) REFERENCES doctors(id)
+   ...> );
+
+sqlite> INSERT INTO patients (name, on_meds, doctor) VALUES ("Frank", "false", 2);
+
+sqlite> INSERT INTO patients (name, on_meds, doctor) VALUES ("Saundra", "true", 1);
+
+sqlite> INSERT INTO patients (name, on_meds, doctor) VALUES ("Susie", "false", 4);
+
+sqlite> INSERT INTO patients (name, on_meds, doctor) VALUES ("John", "true", 2);
