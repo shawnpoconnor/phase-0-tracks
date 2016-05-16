@@ -42,8 +42,48 @@ def add_doctor(db, name)
   db.execute("INSERT INTO doctors (name, number_of_patients) VALUES (?, 0)", [name])
 end
 
-def generate_random_patients(number_of_patients)
+def generate_random_patients(db, number_of_patients)
 illness = ["Flu", "Cold", "Ricktts", "TB", "Inflamation", "Fracture", "Cut", "Sprain"]
-number_of_patients.times do
-  add_patient(db, Faker::Name.name, illness.sample)
+  number_of_patients.times do
+    add_patient(db, Faker::Name.name, illness.sample)
+  end
 end
+
+def show_unassigned_patients(db)
+  patients = db.execute("SELECT * FROM patients")
+   puts "UNASSIGNED PATIENTS:"
+  patients.each do |patient|
+    if patient["doctor_id"] = "nil"
+      puts "#{patient['name']} "
+    end
+  end
+end
+
+def admistrator_interface
+
+  puts "Would you like to Assign Doctors or Update Doctors?"
+  user_input = gets.chomp
+  if user_input == "Assign Doctors"
+    show_unassigned_patients(db)
+
+end
+
+puts "Log in as patient or admistrator?"
+  if user_input == "patient"
+    puts "new or existing user?(n/e)"
+      user_input = gets.chomp
+      if user_input == "n"
+        puts "Welcome!"
+      else
+        puts "What is your name?"
+        user_name = gets.chomp
+        puts "What is your illness?"
+        user_illness = gets.chomp
+
+
+
+  puts "Please enter password:"
+  password = "password"
+  user_input = gets.chomp
+  if user_input == password
+    admistrator_interface
