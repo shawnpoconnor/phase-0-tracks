@@ -42,6 +42,10 @@ def add_doctor(db, name)
   db.execute("INSERT INTO doctors (name, number_of_patients) VALUES (?, 0)", [name])
 end
 
+def assign_doctor(db, patient, doctor_number)
+  db.execute("UPDATE patients SET doctor_id =#{doctor_number} WHERE name=#{patient}")
+end
+
 def generate_random_patients(db, number_of_patients)
 illness = ["Flu", "Cold", "Ricktts", "TB", "Inflamation", "Fracture", "Cut", "Sprain"]
   number_of_patients.times do
@@ -59,13 +63,24 @@ def show_unassigned_patients(db)
   end
 end
 
-def admistrator_interface
+def list_doctors(db)
+  doctors = db.execute("SELECT * FROM patients")
+  puts "#ID and DOCTOR"
+  doctors.each do |doctor|
+    puts"#{doctor['id']}  #{doctor['name']}"
+  end
+end
 
-  puts "Would you like to Assign Doctors or Update Doctors?"
+def admistrator_interface(db)
+  puts "Would you like to Assign Doctors or Update Doctors?"("a/u")
   user_input = gets.chomp
-  if user_input == "Assign Doctors"
+  if user_input == "a"
     show_unassigned_patients(db)
-
+  elsif user_input == "u"
+    puts "What is the new doctor's name?"
+    new_doctor = gets.chomp
+    add_doctor(db, new_doctor)
+  end
 end
 
 puts "Log in as patient or admistrator?"
@@ -79,11 +94,15 @@ puts "Log in as patient or admistrator?"
         user_name = gets.chomp
         puts "What is your illness?"
         user_illness = gets.chomp
-
-
-
-  puts "Please enter password:"
-  password = "password"
-  user_input = gets.chomp
-  if user_input == password
-    admistrator_interface
+        add_patient(db, user_name, user_illness)
+      end
+  elsif user_input == "admistrator"
+    puts "Please enter password:"
+    password = "password"
+    user_input = gets.chomp
+    if user_input == password
+      admistrator_interface(db)
+    else
+      puts "nope!"
+    end
+  end
