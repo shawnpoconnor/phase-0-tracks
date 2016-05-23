@@ -1,0 +1,18 @@
+#main h1{
+  background-color: goldenrod;
+  font-family: helvetica;
+  padding: 10%;
+}
+
+.box {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+  margin: 1%;
+}
+
+.buttons {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 40%;
+}
