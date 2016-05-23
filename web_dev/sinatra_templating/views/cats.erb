@@ -1,0 +1,15 @@
+<html>
+<head>
+  <title>Cats</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Students From All Over</h1>
+  <p>They are here for all your learnings</p>
+  <p>Pssst... They are actually cats.</p>
+  <br>
+  <% @students_by_campus.each do |student| %>
+   <li><%= student['name']%>, <%= student['campus'] %></li>
+  <% end %>
+</body>
+</html>

@@ -25,3 +25,8 @@ post '/students' do
 end
 
 # add static resources
+
+get '/cats/:campus' do
+  @students_by_campus = db.execute("SELECT * FROM students WHERE campus =?", [params['campus']])
+  erb :cats
+end
